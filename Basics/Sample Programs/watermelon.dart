@@ -1,4 +1,8 @@
 // A simple dart program
+
+/**
+ * A simple class in Dart
+ */
 class Watermelon {
   String _shape;
   int _price;
@@ -20,6 +24,9 @@ class Watermelon {
 
 }
 
+/**
+ * A top-level main method
+ */
 main(List<String> args) {
   var myTastyWatermelon = Watermelon("Round", 0);
   print(myTastyWatermelon);
