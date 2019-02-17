@@ -4,4 +4,8 @@
 
 <p align="center"><img src ="https://github.com/AbhilashG97/WatermelonPie/blob/master/images/WatermelonPie.png" /></p>
 
-A delicious repository that contains notes and sample programs on Dart.
+A delicious repository that contains notes and sample programs on ```Dart```.
+
+:exclamation: :warning: :exclamation:
+
+All information present in this repository is taken from the official [Dart Documentation](https://www.dartlang.org/guides/language/language-tour), various StackOverflow posts and blogs on ```Dart``` language. 
