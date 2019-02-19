@@ -56,3 +56,160 @@ Here are some important features that is unique to ```Dart``` -
 
             A Run-time error results in an exception being raised while the code executes.
 
+## Keywords
+
+Here are a list of keywords used in ```Dart``` - 
+
+:exclamation: Ideally, keywords cannot be used as identifiers.
+
+| abstract (2)  | dynamic (2)  | implements (2) | show (1)    |
+| as (2)        | else         | import (2)     | static (2)  |
+| assert        | enum         | in             | super       |
+| async (1)     | export (2)   | interface (2)  | switch      |
+| await (3)     | extends      | is             | sync (1)    |
+| break         | external (2) | library (2)    | this        |
+| case          | factory (2)  | mixin (2)      | throw       |
+| catch         | false        | new            | true        |
+| class         | final        | null           | try         |
+| const         | finally      | on (1)         | typedef (2) |
+| continue      | for          | operator (2)   | var         |
+| covariant (2) | Function (2) | part (2)       | void        |
+| default       | get (2)      | rethrow        | while       |
+| deferred (2)  | hide (1)     | return         | with        |
+| do            | if           | set (2)        | yield (3)   |
+
+**NOTE**
+
+The numbers present in front of the keywords have the following meaning - 
+
+1.  **Keywords marked with ```1```**
+
+    Keywords marked with ```1``` are called ```contextual keywords``` and they only have meaning only in specific places. They can be used as identifiers elsewhere.
+
+1.  **Keywords marked with ```2```**
+
+    The keywords marked with ```2``` are called ```built-in identifers```. They are valid identifiers in most places but they can't be used as class or type names, or as import prefixes.
+
+1.  **Keywords marked with ```3```** 
+
+    The keywords marked with ```3``` are related to asychrony support. 
+    
+    :warning: They cannot be used as an identifier in any function body marked with ```async```, ```async*```, ```sync*```. 
+
+:exclamation: Keywords that haven't been marked cannot be used as identifiers anywhere. They are reserved.
+
+## Variables
+
+We can create variables in ```Dart``` using the ```var``` keyword. 
+
+Here is an example  - 
+
+```dart
+var fruit = 'Watermelon';
+```
+
+A data type can also be specified for variables. Here is an example - 
+
+```dart
+String fruit = "watermelon";
+```
+
+:warning: If we don't want to restrict the data type, we can use make use of ```Object``` or ```dynamic``` keyword. 
+
+### Object vs dynamic 
+
+When ```dynamic``` keyword is used, the user will not get any errors when a method is called on it. However, when the ```Object``` type is used and if the user invokes a invalid method on it, an error will be raised. 
+
+Here is an example - 
+
+```dart
+dynamic a;
+
+Object b;
+
+// no error will be thrown 
+a.length();
+
+// error will be thrown
+b.length();
+```
+
+:warning: In the above code snippet, the dynamic variable ```a``` can contain any data type value, and by default when the ```dynamic``` keyword is used, type checking is disabled.
+
+:warning: In the above code snippet, the Object variable ```b``` can also contain any data type value. But if an invalid method is invoked on the variable, an error will be thrown.
+
+:exclamation: Please read [this](https://stackoverflow.com/questions/31257735/what-is-the-difference-between-dynamic-and-object-in-dart/31264980#31264980) stackoverflow post for more details.
+
+### Default value
+
+:warning: Uninitialized variables have an initial value of ```null```. Even numbers types get assigned ```null``` because of all data types in dart are objects. 
+
+### final and const
+
+If the value of a variable is not to be changed, then the ```final``` or ```const```keyword can be used, depending on the situation. There minor subtles between the usages of ```final``` and ```const``` keyword.
+
+**const**
+
+```const``` keyword is used to make a variable store a ```compile-time-constant-value```. ```Compile-time-constant-value``` is a value which will be constant while compiling.
+
+:warning: It should be initialized at the same line.
+
+Here is an example - 
+
+```dart
+const a = 5;
+
+const var b = 10;
+
+const int c = 20;
+```
+:warning: Class-level const variable have to be static.
+
+:warning: We cannot use ```const``` for instance variables of a class. However, instance variables can be final.  
+
+Here is another set of example - 
+
+```dart
+class Watermelon {
+    static const var fruit = "Watermelon";
+}
+
+// This is NOT ACCEPTABLE in Dart.
+class Lychee {
+    const fruit = "Lychee";
+}
+```
+
+#### More on const keyword
+
+```const``` can be used to objects immutable. In order to make a class object immutable, we have to do the following - 
+
+
+1. Make all instance variables final.
+
+1. Declare the constructor as const.
+
+Here is an example for the same - 
+
+```dart
+class A {
+    
+    final a, b;
+
+    const A(this.a, this.b);
+}
+
+main(List<String> args) {
+
+    // An immutable object 
+    const immutableObject = const A("Watermelon", "Delicious");
+
+
+    // a
+
+}
+```
+
+**final**
+
+"final" means single-assignment: a final variable or field must have an initializer. Once assigned a value, a final variable's value cannot be changed. final modifies variables.
