@@ -235,3 +235,24 @@ final delicious_fruit = "square watermelon";
 
 ## Built-in types 
 
+```Dart``` has special support for a few types which are as follows - 
+
+1. numbers
+1. strings
+1. booleans
+1. lists (also known as arrays)
+1. maps
+1. runes (for expressing Unicode characters in a string)
+1. symbols
+
+We can initialize these data types with literals. 
+
+:warning: Since, all variables are objects in ```Dart```, even constructors can be used to initialize variables.
+
+### Numbers 
+
+There are two variations of Numbers in ```Dart``` - 
+
+1. **```int```**
+
+1. **```double```**
