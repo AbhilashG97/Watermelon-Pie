@@ -62,6 +62,8 @@ Here are a list of keywords used in ```Dart``` -
 
 :exclamation: Ideally, keywords cannot be used as identifiers.
 
+| Table         | of           | Keywords in    | ```Dart```  |
+|---------------|--------------|----------------|-------------|
 | abstract (2)  | dynamic (2)  | implements (2) | show (1)    |
 | as (2)        | else         | import (2)     | static (2)  |
 | assert        | enum         | in             | super       |
@@ -150,7 +152,7 @@ If the value of a variable is not to be changed, then the ```final``` or ```cons
 
 **const**
 
-```const``` keyword is used to make a variable store a ```compile-time-constant-value```. ```Compile-time-constant-value``` is a value which will be constant while compiling.
+```const``` keyword is used to make a variable store a ```compile-time-constant-value```. ```Compile-time-constant-value``` is a value which will be constant while compiling. It can be used to store a ```const``` value in a variable.
 
 :warning: It should be initialized at the same line.
 
@@ -204,12 +206,32 @@ main(List<String> args) {
     // An immutable object 
     const immutableObject = const A("Watermelon", "Delicious");
 
-
-    // a
-
+    // A mutable object with a const value
+    A mutableObject = const A("Watermelon", "yum, yum, yum");
 }
 ```
 
+:warning: ```const``` can be used to store constant values. It can also be used to create ```const``` variable and store ```const``` values in it. 
+
+:warning: It can also be used to create constant values, as well as to declare constructors that create constant values. Any variable can have a constant value.
+
+:warning: We can change the value of non-final, non-const variable, even if it used to have a const value. However, if a variable is defined as ```final``` or ```const``` its value cannot be changed.
+
 **final**
 
-"final" means single-assignment: a final variable or field must have an initializer. Once assigned a value, a final variable's value cannot be changed. final modifies variables.
+"final" means single-assignment: a final variable or field must have an initializer. Once assigned a value, a final variable's value cannot be changed. final modifies variables. 
+
+Here is an example - 
+
+
+```dart
+final var awesome_fruit = "watermelon";
+
+final delicious_fruit = "square watermelon";
+```
+
+:warning: We can declare and assign values to final variables without specifying its type.
+
+
+## Built-in types 
+
