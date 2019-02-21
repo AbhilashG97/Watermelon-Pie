@@ -225,9 +225,9 @@ Here is an example -
 
 
 ```dart
-final var awesome_fruit = "watermelon";
+final var awesomeFruit = "watermelon";
 
-final delicious_fruit = "square watermelon";
+final deliciousFruit = "square watermelon";
 ```
 
 :warning: We can declare and assign values to final variables without specifying its type.
@@ -253,6 +253,109 @@ We can initialize these data types with literals.
 
 There are two variations of Numbers in ```Dart``` - 
 
-1. **```int```**
+1.  **```int```**
 
-1. **```double```**
+1.  **```double```**
+
+:warning: Both are subtypes of ```num```.
+
+They include basic functions like  ```abs()```, ```floor()```, ```ciel()``` etc. ```dart:math``` contains extra mathematical functions as well.
+
+:warning: If a number contains a decimal then it is a ```double``` else it is ```int```. 
+
+Here are a few examples - 
+
+```dart
+// These are integers
+var y = 12;
+var someHexValue = 0xAEFF;
+
+// These are decimals
+var fruitPrice = 10.0;
+var someWeirdValue = 1.424e5;
+```
+
+:warning: ```Dart``` automatically converts values to double.
+
+```dart
+// some value will be converted to 2.0 automatically
+double someValue  = 2;
+```
+
+#### Number to String conversion and vice-versa
+
+We can convert a number to a String using the ```toString()``` and ```toStringAsFixed()``` method; and similarly a String value can be converted to a number using the ```parse()``` of ```int``` and ```double``` double data type.
+
+Here is an example - 
+
+```dart
+String stringInteger = 1.toString();
+String stringDouble = 1.1.toString();
+String anotherStringDouble = 1.23232.toStringAsFixed(2);
+
+var someInteger = int.parse('1');
+var someDouble = double.parse('1.12');
+```
+
+:warning: Literal numbers are compile-time constants.
+
+### Strings
+
+A String in ```Dart``` is a sequence of **UTF-16 code units**. 
+
+:warning: A ```Dart``` String can be created with either **single quotes** or **double quotes**. 
+
+Here is an example - 
+
+```dart
+var someString = 'This is a string';
+var anotherString = "This is another string";
+```
+
+:warning: ```Dart``` supports String interpolation. ```${Expression}``` can be used to add expressions in a String. If a variable is to be interpolated with a String ```$variableName``` is enough.
+
+:warning: Strings can be concatenated with the ```+``` opertor. 
+
+:warning: Multi-line strings can be created with the help of triple quotes, ```''' '''``` or ```""" """```.
+
+:exclamation: A **raw string** in ```Dart``` can be created by prefixing it with r. In a raw string the string is read as is, no escape characters are interpretted.
+
+Here are some examples - 
+
+```dart
+var multilineString = """Thi
+is a 
+multi-line 
+String""";
+
+var rawString = r"This is a raw string";
+```
+
+### Boolean
+
+```Dart``` also has boolean values. Boolean values in ```Dart``` are repsented by the ```bool``` keyword. ```bool``` variables can contain either ```true``` or ``false``` values.
+
+Here is an example - 
+
+```dart
+var aBooleanVariable = true;
+```
+
+### Lists 
+
+In ```Dart``` arrays are represnted through ```List objects```. 
+
+:warning: Lists in ```Dart``` are 0 index based.
+
+:warning: To create list that is a compile-time-constant, add the ```const``` keyword before the list literal.
+
+Here are a few examples - 
+
+```dart
+var integerList = [1, 2, 3, 4];
+
+// a compile time constant list 
+var someList = const [1, 2, 4, 5,]; 
+```
+
+### Maps
