@@ -358,4 +358,66 @@ var integerList = [1, 2, 3, 4];
 var someList = const [1, 2, 4, 5,]; 
 ```
 
-### Maps
+### Maps 
+
+Maps in ```Dart``` are quite similar to Maps in ```Python```. A map can be used to store key-value pairs. 
+
+:warning: Both key and value can be any type of object. Keys of the same value cannot be used.
+
+:warning: Maps are generic, however the analyzer automatically infers the type specified in the Map.
+
+Here is an example - 
+
+```dart
+
+var fruitDesserts = {
+    "watermelon" : "watermelon icecream",
+    "banana" : "banana icecream sundae",
+    "lychee" : "lychee icecream"
+    };
+
+var favoriteFruitList = {
+    1 : "watermelon",
+    2 : "apple",
+    3 : "lychee"
+};
+```
+
+A map can also be created using the constructor as well. 
+
+Here is an example - 
+
+```dart
+var fruitMap = Map();
+fruitMap["watermelon"] = "awesome fruit";
+```
+
+:warning: If a key which is not present in the map is specified, a null value is returned.
+
+:warning: ```.length``` can be used to find the number of key-value pairs present in the map. 
+
+:exclamation: To create a map which contains values that are compile-time-constants, we can use the ```const``` keyword.
+
+:warning: ```List.asMap``` can be used to convert a list to a map. 
+
+### Runes
+
+Runes are the ```UTF-32``` code points of a string.
+
+:exclamation: The usual way to express a Unicode code point is \uXXXX, where XXXX is a 4-digit hexadecimal value.
+
+:warning: To specify more or less than 4 hex digits, place the value in curly brackets.
+
+Here is an example - 
+
+```dart
+var watermelon = '\u{1f349}';
+print(watermelon);
+```
+
+## Functions
+
+In ```Dart``` even functions have a type, i.e. ```Fuction```. ```Dart``` is a true object oreinted language where everything is an object.
+
+:warning: This means that functions can be assigned to variables or passed as arguments to other functions. You can also call an instance of a Dart class as if it were a function.
+
