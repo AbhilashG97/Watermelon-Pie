@@ -4,7 +4,7 @@ This directory contains basics of ```Dart``` language.
 
 ## Writing a basic ```Dart``` Program
 
-You can find the hello_world program [here](#). 
+You can find the hello_world program [here](https://github.com/AbhilashG97/Watermelon-Pie/blob/master/Basics/Sample%20Programs/hello_world.dart). 
 
 If you look at the hello_world program, you'll notice the following the following - 
 
@@ -219,7 +219,7 @@ main(List<String> args) {
 
 **final**
 
-"final" means single-assignment: a final variable or field must have an initializer. Once assigned a value, a final variable's value cannot be changed. final modifies variables. 
+```final``` means single-assignment: a final variable or field must have an initializer. Once assigned a value, a final variable's value cannot be changed. final modifies variables. 
 
 Here is an example - 
 
@@ -333,7 +333,7 @@ var rawString = r"This is a raw string";
 
 ### Boolean
 
-```Dart``` also has boolean values. Boolean values in ```Dart``` are repsented by the ```bool``` keyword. ```bool``` variables can contain either ```true``` or ``false``` values.
+```Dart``` also has boolean values. Boolean values in ```Dart``` are repsented by the ```bool``` keyword. ```bool``` variables can contain either ```true``` or ```false``` values.
 
 Here is an example - 
 
@@ -417,7 +417,7 @@ print(watermelon);
 
 ## Functions
 
-In ```Dart``` even functions have a type, i.e. ```Fuction```. ```Dart``` is a true object oreinted language where everything is an object.
+In ```Dart``` even functions have a type, i.e. ```Function```. ```Dart``` is a true object oreinted language where everything is an object.
 
 :warning: This means that functions can be assigned to variables or passed as arguments to other functions. You can also call an instance of a Dart class as if it were a function.
 
