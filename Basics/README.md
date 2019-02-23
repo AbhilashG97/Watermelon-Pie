@@ -419,5 +419,125 @@ print(watermelon);
 
 In ```Dart``` even functions have a type, i.e. ```Function```. ```Dart``` is a true object oreinted language where everything is an object.
 
-:warning: This means that functions can be assigned to variables or passed as arguments to other functions. You can also call an instance of a Dart class as if it were a function.
+:warning: This means that functions can be assigned to variables or passed as arguments to other functions. You can also call an instance of a ```Dart``` class as if it were a function.
 
+Here is an example - 
+
+```dart
+bool isWatermelon(String fruit) {
+    return fruit == 'watermleon';
+}
+
+isWatermelon(fruit) {
+    return fruit == 'watermelon';
+}
+```
+
+:warning: It is possible to write functions without type in ```Dart```, however it is not recommended to do so.
+
+A function in ```Dart``` can also be defined in a single line using the arrow notation (```=>```).
+
+Here is an example - 
+
+```dart
+bool isWatermelon(String fruit) => fruit == 'watermelon';
+```
+
+:warning: The arrow syntax is a shorthand for ```{return expression;}```. Therefore, only expressions can be used with the arrow. A statement cannot be used with arrow expression. An example of a statement can be a ```if-else``` statement. 
+
+### Parameters in Dart
+
+In ```Dart``` there are two kinds of parameters - 
+
+1. Required parameters
+1. Optional parameters
+
+:warning: The required parameters are listed first followed by the optional parameters.
+
+The optional parameters are of two types - 
+
+1. Named optional parameters
+1. Positional optional parameters
+
+#### Named Optional Parameters
+
+Named optional parameters can be created using the ```{}``` braces. 
+
+Here is an example - 
+
+```dart
+void awesomeFruits(String okayishFruit, {String favouriteFruit, String awesomeFruit}) {
+    print("This is an awesome fruit : " + awesomeFruit);
+}
+
+void main() {
+    awesomeFruits("Sapote", favouriteFruit: "watermleon", awesomeFruit: "watermelon");
+}
+```
+
+:warning: While using named optional parameters, the name of the parameter has to be specified. The named parameter can be called in any order, but the name of the parameter has to be specified.
+
+:warning: Also, ```@required``` annotation can be used to specify named optional parameters.
+
+Here is am example - 
+
+```dart
+void someFruitWidget(String title, @required Widget child) {
+    // Do something here.
+}
+```
+#### Optional Positional Parameters
+
+Positional Parameters are created using ```[]``` braces. 
+
+:warning: In positional parameters we don't have to specify the names of the parameters but the arguments have to be entered **sequentially** and in the **exact order** as specified. Also, while entering the arguments we cannot  change the order.
+
+Here is an example - 
+
+```dart
+String someFruits(int numberOfFruits, [String fruitOne, String fruitTwo, String fruitThree]) {
+    return "Awesome fruit - $fruitOne";
+}
+
+void main() {
+    print("Here is an awesome fruit ${someFruits(1, "watermelon")}");
+}
+```
+
+#### Default Parameter Values
+
+Default values can be given to optional parameters in ```Dart```. ```=``` symbol can be used to assign default values.
+
+Here is an example - 
+
+```dart
+void awesomeDessert(int numbers, {String dessertTopping = "tuty fruity", String sweetness = "okayish sweet!"}) {
+    print("This is an awesome dessert : $dessertTopping")
+}
+
+void awesomeMethod(int number,  {List<String> fruits = ["Apple", "Watermelon", "Orange"], String someValue = "someValue"}) {
+    print("This is a parameter with a default value : $fruits");
+}
+```
+
+#### The main() funtion
+
+The ```main()``` function returns ```void``` and it serves as an entry point to the application. The ```main()``` function also takes in ```List<String> args``` as command line argument. 
+
+Here is an example - 
+
+```dart
+void main() {
+
+}
+
+void main(List<String> args) {
+
+}
+```
+
+:warning: A ```Dart``` program cannot run without the ```main()``` method.
+
+#### Functions as first-class objects
+
+```Dart``` also allows us to pass functions as parameters to other functions.
