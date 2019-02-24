@@ -223,7 +223,6 @@ main(List<String> args) {
 
 Here is an example - 
 
-
 ```dart
 final var awesomeFruit = "watermelon";
 
@@ -232,6 +231,7 @@ final deliciousFruit = "square watermelon";
 
 :warning: We can declare and assign values to final variables without specifying its type.
 
+:warning: Please read [this](https://stackoverflow.com/questions/50431055/what-is-the-difference-in-between-const-and-final-keyword-in-dart) StackOverflow post for more details.
 
 ## Built-in types 
 
@@ -330,6 +330,7 @@ String""";
 
 var rawString = r"This is a raw string";
 ```
+:warning: Please read [this](https://stackoverflow.com/questions/21521729/how-do-i-reverse-a-string-in-dart) StackOverflow post too.
 
 ### Boolean
 
@@ -458,6 +459,8 @@ The optional parameters are of two types -
 
 1. Named optional parameters
 1. Positional optional parameters
+
+:warning: Please read [this](https://stackoverflow.com/questions/13264230/what-is-the-difference-between-named-and-positional-parameters-in-dart) StackOverflow post on Optional parameters in ```Dart```.
 
 #### Named Optional Parameters
 
@@ -763,7 +766,7 @@ Here is an example -
 
 #### Other operators
 
-```Dart``` also has a ```conditional member access operator``` where an object gets a value if the object happens to be null. 
+```Dart``` also has a ```conditional member access operator```. Here, ```x?.p``` evaluates to ```x.p``` if ```x``` is not ```null```, otherwise evaluates to ```null```.
 
 Here is an example - 
 
