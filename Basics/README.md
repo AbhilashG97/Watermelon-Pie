@@ -541,3 +541,81 @@ void main(List<String> args) {
 #### Functions as first-class objects
 
 ```Dart``` also allows us to pass functions as parameters to other functions.
+
+Here is an example - 
+
+```dart
+void printFruits(String fruit) {
+    print("Here is an awesome $fruit.");
+}
+
+var fruits = ['Watermelon', 'Mango', 'Lychee'];
+
+fruits.forEach(printFruits);
+```
+
+Also a function can be assigned to a variable.
+
+Here is an example - 
+
+```dart
+var printUppercasFruit = (fruit) => fruit.toUpperCase();
+
+
+void main() {
+    printUppercasFruit('Watermelon');
+}
+```
+
+#### Anonymous Functions
+
+Nameless functions can also be created in ```Dart```. It is often referred to as a ```lambda``` or ```closure```. A anonymous function can be assigned to variable and tha variable can be used in its place.
+
+Here is an example - 
+
+```dart
+var fruitList = ['watermelon', 'mango', 'apple'];
+fruitList.forEach((fruit) {
+    print("Here is na awesome $fruit.");
+});
+```
+
+:exclamation: The above code can be further shortened. Below is an example of the shortened verision of a anonymous function.
+
+:warning: The shortened version mentioned below can only be used when there is only a single statement present in the anonymous function.
+
+```dart
+var fruitList = ['watermelon', 'mango', 'apple'];
+fruitList.forEach((fruit) => print("Here is an awesome $fruit."));
+```
+
+#### Lexical Scope
+
+```Dart``` happens to be a lexically scoped language. This means that the scope of the variables can be determined statically, simply by the layout of the code. 
+
+Below is an example for the same - 
+
+```dart
+String godFruit = 'Watermelon';
+
+void main() {
+    var awesomeFruit = 'Apple';
+
+    void aFruitMethod() {
+        var greatFruit = 'Lychee';
+
+        void anotherFruitMethod() {
+            print(godFruit);
+            print(awesomeFruit);
+            print(greatFruit);
+        }
+    }
+}
+```
+
+:warning: Please notice that the inner most function is able to access all the variables, even the ones present at outer levels.
+
+#### Lexical closures
+
+	
+> A closure is a function object that has access to variables in its lexical scope, even when the function is used outside of its original scope.
