@@ -520,7 +520,7 @@ void awesomeMethod(int number,  {List<String> fruits = ["Apple", "Watermelon", "
 }
 ```
 
-#### The main() funtion
+### The main() funtion
 
 The ```main()``` function returns ```void``` and it serves as an entry point to the application. The ```main()``` function also takes in ```List<String> args``` as command line argument. 
 
@@ -538,7 +538,7 @@ void main(List<String> args) {
 
 :warning: A ```Dart``` program cannot run without the ```main()``` method.
 
-#### Functions as first-class objects
+### Functions as first-class objects
 
 ```Dart``` also allows us to pass functions as parameters to other functions.
 
@@ -567,7 +567,7 @@ void main() {
 }
 ```
 
-#### Anonymous Functions
+### Anonymous Functions
 
 Nameless functions can also be created in ```Dart```. It is often referred to as a ```lambda``` or ```closure```. A anonymous function can be assigned to variable and tha variable can be used in its place.
 
@@ -589,7 +589,7 @@ var fruitList = ['watermelon', 'mango', 'apple'];
 fruitList.forEach((fruit) => print("Here is an awesome $fruit."));
 ```
 
-#### Lexical Scope
+### Lexical Scope
 
 ```Dart``` happens to be a lexically scoped language. This means that the scope of the variables can be determined statically, simply by the layout of the code. 
 
@@ -615,7 +615,20 @@ void main() {
 
 :warning: Please notice that the inner most function is able to access all the variables, even the ones present at outer levels.
 
-#### Lexical closures
+### Lexical closures
 
+The ```Dart``` documentation defines lexical closure as follows - 
 	
-> A closure is a function object that has access to variables in its lexical scope, even when the function is used outside of its original scope.
+> A closure is a function object that has access to variables in its lexical scope, even when the function is used outside of its original scope. Functions can close over variables defined in surrounding scopes.
+
+You can find an example for lexical closures in this [file](#).
+
+### Testing functions for equality
+
+The ```assert()``` method can be used to test various methods in ```Dart```.
+
+### Return values
+
+Every function in ```Dart``` returns a value. 
+
+:warning: If no return value is specified in method signature then ```null``` is returned by default. The ```return null;``` statement is implicitly added to the function body.
