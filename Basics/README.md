@@ -632,3 +632,142 @@ The ```assert()``` method can be used to test various methods in ```Dart```.
 Every function in ```Dart``` returns a value. 
 
 :warning: If no return value is specified in method signature then ```null``` is returned by default. The ```return null;``` statement is implicitly added to the function body.
+
+## Operators
+
+This ```Dart``` [file](#) contains sample programs on operators. 
+
+The official ```Dart``` documentation lists the following operators -
+
+| Description              | Operator                                                                      |
+|--------------------------|-------------------------------------------------------------------------------|
+| unary postfix            | expr++    expr--    ()    []    .    ?.                                       |
+| unary prefix             | -expr    !expr    ~expr    ++expr    --expr                                   |
+| multiplicative           | *    /    %  ~/                                                               |
+| additive                 | +    -                                                                        |
+| shift                    | <<    >>                                                                      |
+| bitwise AND              | &                                                                             |
+| bitwise XOR              | ^                                                                             |
+| bitwise OR               | |                                                                             |
+| relational and type test | >=    >    <=    <    as    is    is!                                         |
+| equality                 | ==    !=                                                                      |
+| logical AND              | &&                                                                            |
+| logical OR               | ||                                                                            |
+| if null                  | ??                                                                            |
+| conditional              | expr1 ? expr2 : expr3                                                         |
+| cascade                  | ..                                                                            |
+| assignment               | =    *=    /=    ~/=    %=    +=    -=    <<=    >>=    &=    ^=    |=    ??= |
+
+:warning: The opertors listed above have been mentioned in the order of decreasing precedence, i.e. the operators present below a given operator in the above table have less precedence than the ones mentioned above them.
+
+:boom:  For operators that work on two operands, the leftmost operand determines which version of the operator is used. For example, if you have a Vector object and a Point object, ```aVector + aPoint``` uses the **Vector version** of ```+```.
+
+:warning: ```~/``` operator can be used to get the integer result of a division.
+
+### Similarity between objects
+
+We can use ```==``` to check whether two objects represent the same thing. 
+
+:warning: If however we need to check whether two objects are exactly the same object, we can use the ```identical()``` method.
+
+### Type test operators
+
+The below mentioned operators can be used to check types at runtime.
+
+| Operator | Meaning                                          |
+|----------|--------------------------------------------------|
+| as       | Typecast (also used to specify library prefixes) |
+| is       | True if the object has the specified type        |
+| is!      | False if the object has the specified type       |
+
+#### as operator 
+
+The ```as``` operator is used to type cast an object to a particular type. However, if the object is null or is of some other type then an exception will be thrown. 
+
+Here is an example - 
+
+```dart
+(watermelon as Fruit).getFruitName();
+```
+
+#### is and is!
+
+This operator checks whether a given object is of a specific type or not. 
+
+Here is an example - 
+
+```dart
+if(fruit is Watermelon) {
+    print('yay!!');
+}
+
+if(fruit is! watermelon) {
+    print('-_-;');
+}
+```
+
+#### Assignment operators
+
+In ```Dart``` we can assign a value to a variable ```iff``` it is ```null```. This can be done with the help of the ```??=``` operator. 
+
+Here is an exmaple - 
+
+```dart
+var b ??= 12; 
+```
+
+:warning: Here ```b``` will be given the value of 12, if it is ```null```.
+
+#### Conditional expressions
+
+There are two types of conditional operators in ```Dart``` which are as follows - 
+
+1.  ```condition ? expr1 : expr2```
+
+    Here, if the condition is true, then ```expression 1``` is evaluated and returned else ```expression 2``` is evaluated and returned.
+
+1.  ```expr1 ?? expr2```
+
+    Here, ```expression 1``` is evaluated and returned if it is not null, else ```expression 2``` is evaluated and returned.  
+
+Here are some examples - 
+
+```dart
+var awesomeness = (fruit.getFruitName() == 'watermelon') ? "God-level awesomeness" : "Blaaaaah";
+
+void setFruitName(String fruit) => fruit ?? "watermelon";
+```
+
+:warning: The second version of the conditional expression can be used in cases where a variable has to be tested for a ```null``` value.
+
+:warning: The first exoression can be used in cases where a condition evaluates to either a true or false value.
+
+#### Cascade notation (..)
+
+The cascade notation is used to perform a sequence of operations on a single object. A chain of operations can be performed on a single object.
+
+Here is an example -
+
+```dart
+    var fruit = getSomeFruit()
+                ..name = "watermelon"
+                ..price = 0
+                ..isFruitAwesome();                
+```
+
+:warning: The cascade operator performs operations on the object received from the first operation. If the first operation returns a ```null``` value, then cascade operation cannot be performed.
+
+:exclamation: Be careful to construct your cascade on a function that returns an actual object.
+
+:warning: Strictly speaking, the “double dot” notation (```..```) for cascades is not an operator. It’s just part of the Dart syntax.
+
+#### Other operators
+
+```Dart``` also has a ```conditional member access operator``` where an object gets a value if the object happens to be null. 
+
+Here is an example - 
+
+```dart
+var fruit = watermelon?.lychee;
+```
+
