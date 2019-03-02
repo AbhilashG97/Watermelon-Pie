@@ -4,7 +4,7 @@ This directory contains basics of ```Dart``` language.
 
 ## Writing a basic ```Dart``` Program
 
-You can find the hello_world program [here](https://github.com/AbhilashG97/Watermelon-Pie/blob/master/Basics/Sample%20Programs/hello_world.dart). 
+You can find the a simple **hello_world** program [here](https://github.com/AbhilashG97/Watermelon-Pie/blob/master/Basics/Sample%20Programs/hello_world.dart). 
 
 If you look at the hello_world program, you'll notice the following the following - 
 
@@ -774,3 +774,176 @@ Here is an example -
 var fruit = watermelon?.lychee;
 ```
 
+## Control Flow Statements
+
+Please view [this](#) dart file for more sample code on control-flow.
+
+With the control flow statements we can control the flow of our application. ```Dart``` supports the following control flow statements -
+
+1. if and else
+1. for loops
+1. while and do-while loops
+1. break and continue
+1. switch and case
+1. assert
+
+### If and Else statements
+
+```Dart``` has if-else statements. It is quite similar to the one present in ```Java```. Here is an example - 
+
+```dart
+if (isFruitAwesome) {
+    sayWatermelon();
+} else if (isFruitGreat()) {
+    sayLychee();
+} else {
+    drinkWater();
+}
+```
+
+### For loops 
+
+```Dart``` has various loops that can be used to perform iterative tasks. The following types of loops are present in the ```Dart```- 
+
+1. ```for-loop```
+1. ```while loop```
+1. ```do while loop```
+
+#### for loop 
+
+The for loop present in ```Dart``` is quite similar to the one present in ```Java```. 
+
+Here is an example - 
+
+```dart
+for(var i = 0; i<10; i++) {
+    print("This is an awesome counter $i.");
+}
+```
+
+##### Some variations of the for loop
+
+Below mentioned are a few variations of the ```for``` loop.
+
+:warning: If the object we are iterating over is an itearable, then the ```forEach()``` loop can also be used. 
+
+:warning: The ```forEach()``` used in ```Dart``` is quite simiar to the one used in ```Java```.
+
+:warning: Another variation is the ```for-in-loop```. 
+
+Here is an example of the ```for-in-loop``` - 
+
+```dart
+var fruitList = ["watermelon", "lychee", "mango"];
+for (fruit in fruitList) {
+    print("This is a fruit $fruit");
+}
+```
+
+#### while loop
+
+A ```while loop``` in ```Dart``` is similar to the one present in ```Java```. The condition is specified inside the ```while loop``` and it executes as long the condition is ```true```. 
+
+Here is an example - 
+
+```dart
+while(isFruitDelicious()) {
+    eatFruit();
+}
+```
+
+#### do while loop
+
+A ```do while``` loop in ```Dart``` is similar to the ```do while``` loop present in ```Java```.
+
+Here is an example - 
+
+```dart
+do {
+    print('watermelon!')
+} while (isFruit());
+```
+
+:warning: A do-while loop will always execute once.
+
+#### break and continue
+
+The usage of ```break``` and ```continue``` keywords is exactly the same as that of ```Java```. 
+
+:warning: The ```continue``` keyword can be used to skip to the next loop iteration.
+
+#### switch and case
+
+The ```switch``` and ```case``` in ```Dart``` is quite simiilar to the one in ```Java```. 
+
+:warning: The switch can be used to compare integer, string, or compile-time constants using ==.
+
+:warning: The objects that are being compared must of the same class and **not** of any of its sub-types. 
+
+Here is an example - 
+
+```dart
+
+var fruit = 'watermelon';
+
+switch(fruit) {
+    case 'watermelon':
+        print("Yaay!!");
+        break;
+    case 'lychee':
+        print("Yaay!!");
+        break;
+    default:
+        print("ewwwwww!");
+}
+```
+
+:warning: In ```Dart``` missing the ```break``` statement in a non-empty case statement will generate an error.
+
+:warning: Other valid ways to end a non-empty case clause are a continue, throw, or return statement.
+
+:warning: If we want to fall-through a case in ```Dart```, either the case statement can be left empty or ```continue``` with a ```label``` can be used in the case statement. Below is an example -
+
+```dart
+var fruit = 'watermelon';
+
+switch(fruit) {
+    case 'watermelon':
+        // fall-through this case 
+    case 'lychee':
+        print("Yaay!!");
+        break;
+    default:
+        print("ewwwwww!");
+}
+
+switch(fruit) {
+    case 'watermelon':
+        print('Yaay!!!');
+        continue goToLychee;
+
+    goToLychee: 
+    case 'lychee':
+        print("Yaay!!");
+        break;
+    default:
+        print("ewwwwww!");
+}
+```
+:warning: A ```case``` can also have local variables which are only visible inside that particular ```case``` statement.
+
+#### assert
+
+An ```assert``` statement is used to disrupt the normal execution of a ```Dart``` program. 
+
+:warning: ```assert``` have no effect on the production code, they are meant for development purposes only.  
+
+:warning: The first argument has to be evaluated to a boolean value. The second argument is a message(String).
+
+Here is an exmaple - 
+
+```dart
+assert(fruit.isWatermelon(), "This is not a watermelon :(");
+```
+
+:sparkles: Yay, this is the end of basics of the ```Dart``` language. Please look [here](#) to learn more. :sparkles: 
