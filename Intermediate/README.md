@@ -373,3 +373,46 @@ class Watermelon {
 
 ##### Factory constructors
 
+The factory constructor allows the user to create instances of a class form the constructor. The constructor can be used like a factory method.
+
+:warning: Usually the factory constructor is kept public and the rest of the constructors are kept private.
+
+Here is an example - 
+
+```dart
+
+class Watermelon {
+
+    String _shape;
+    int _price;
+
+    factory Watermelon(String type) {
+        if(type.toLowerCase() == 'big') {
+            return Watermelon._getInstance('big', 10000);
+        } else {
+            return Watermelon._getInstance('small', 5000);
+        }
+    }
+
+    Watermelon._getInstance(this._shape, this._price);
+}
+```
+
+:warning: A factory constructor can be invoked just like any other constructor.
+
+### Instance variable
+
+Instance variables in ```Dart``` are quite similar to that of ```Java```, however they do have a few subtle differences.
+
+:warning: All uninitialized variables have the value ```null```.
+
+:warning: All variables generate an implicit getter method. 
+
+:warning: All non-final variables generate an implicit setter method.
+
+:exclamation:
+
+> If you initialize an instance variable where it is declared (instead of in a constructor or method), the value is set when the instance is created, which is before the constructor and its initializer list execute.
+
+### Methods 
+
