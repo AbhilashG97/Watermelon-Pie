@@ -280,7 +280,9 @@ class Watermelon extends Fruit {
 
 :warning: The superclass constructor is called after the ```colon(:)``` symbol. 
 
-:warning: If you create a named constructor in a super-class, then you will have to call the unnamed constructor in its subclass or a named constructor of the super-class. If a call to constructor is not made in the subclass, an error will be thrown.
+:warning: If you create a named constructor along with an unamed-no-arg constructor in the super-class, then you don't have to explicitly call the constructors of the super class. The unnamed-no-arg constructor is called by default in the sub-class. 
+
+On the other hand if the unnamed constructor has arguments it will be have to called explictly. Named constructors can also be called in its place.  
 
 ##### Initializer List 
 
@@ -311,6 +313,63 @@ class Watermelon {
     final int _price;
 
     Watermelon(this._taste) : _price = 2; 
-
 }
 ```
+
+:warning: ```final``` members have to be initialized in all the constructors in ```Dart``` or an error is thrown during compilation.
+
+##### Redirecting Constructors
+
+A ```Redirecting constructor``` redirects a constructor to another constructor. The body of the redirecting constructor is empty. 
+
+Here is an example of a redirecting constructor -
+
+```dart
+class Watermelon {
+
+    String _taste;  
+    String _shape;
+
+    Watermelon(this._taste, this._shape);
+
+    Watermelon.watermelon(String taste, String shape) : this(taste, shape);
+}
+```
+
+:warning: The constructor to which the ```Redirecting Constructor``` points is specified after the ```colon(:)```.
+
+##### Constant Constructors
+
+In certain cases when a class produces a constant object, a constant constructor can be used. A constant constructor is created by prefixing a constructor with the ```constant``` keyword.
+
+Here is an example -
+
+```dart
+class Watermelon {
+
+    final String _genus;
+
+    const Watermelon.genus(this._genus);
+}
+```
+
+:warning: The instance variables on which the constructors will be used must be ```final```.
+
+:exclamation: Constant constructors don’t always create constants. Please use ```const``` keyword while creating objects to create actual compile-time constants. If the ```new``` keyword is used instead of the ```const``` keyword, then a regular object will be created.  
+
+:warning: Any generative constructor can also initialize final variables. 
+
+:warning: A constant constructor cannot have a body. If a method body is specified then a compile-time error will be thrown.
+
+:warning: When a constant constructor is used, all the fields in the class have to be ```final```. If non-final fields are used they'll throw an error.
+
+:exclamation: Below mentioned are a few really important points -
+
+> The point of const constructors is not to initialize final fields. The point is to create compile-time constant values: Objects where the all field values are known already at compile time, without executing any statements.
+
+> The initializer list must also only initialze fields to other compile-time constants.
+
+>  A const constructor can also be used as a normal constructor to create objects at runtime, as well as creating compile-time constant objects at compilation time.
+
+##### Factory constructors
+
