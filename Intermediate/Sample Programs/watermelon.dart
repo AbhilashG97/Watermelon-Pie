@@ -26,15 +26,14 @@ class Fruit {
 class Watermelon extends Fruit {
   
   String _taste;
-  int _price;
+  final int _price;
   final String availability;
 
-  Watermelon(this._taste, this._price) : super() {
-    availability = 'AVAILABLE';
+  Watermelon(this._taste, this._price) : availability = 'AVAILABLE' {
+
   }
 
-  Watermelon.watermelon(String fruit) : super.fruit('watermelon') {
-    availability = "YES";
+  Watermelon.watermelon(String fruit) {
     print('This is a $fruit.');
   }
 
@@ -50,12 +49,11 @@ class Watermelon extends Fruit {
 main(List<String> args) {
 
   var watermelon = Watermelon('sweet', 20);
-  var anotherWatermelon = Watermelon.watermelon('watermelon'); // named constructor is used.
+  //var anotherWatermelon = Watermelon.watermelon('watermelon', 12); // named constructor is used.
   print(watermelon); // print the class
 
   watermelon = Watermelon('bitter', 200); 
   print(watermelon); // printing another class 
   
   print(watermelon.getMeMelon());
-
 }

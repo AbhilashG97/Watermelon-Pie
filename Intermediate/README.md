@@ -57,7 +57,7 @@ throw 'Watermelon missing!';
 
 :warning: Production quality code usually throw exception of type ```Exception``` or ```Error``` and not any arbitrary object.
 
-:warning: Throwing an exception is an exception hence it can also be used with ```fat arrows (=>)```. 
+:warning: Throwing an exception is an ```expression```, hence it can also be used with ```fat arrows (=>)```. 
 
 Here is an example - 
 
@@ -88,11 +88,11 @@ try {
     buyLychees();
 } catch (e) {
     buyDeliciousFruits();
-    print('We are out of edible items $e')
+    print('We are out of edible items $e. But we got new fruits.\n');
 }
 ```
 
-:warning: To handle exceptions we can use both ```on``` and ```catch``` keywords. The ```catch``` keyword is to be used when, we want to do something with the exception. The ```on``` keyword is used when the user just wants to handle the exception, without doinf anythong specific with the exception.
+:warning: To handle exceptions we can use both ```on``` and ```catch``` keywords. The ```catch``` keyword has to be used when, we want to do something with the exception. The ```on``` keyword is used when the user just wants to handle the exception, without doing anythong specific with the exception.
 
 :exclamation: The ```catch(e, s)``` keyword can also take in 2 arguments. The first argument is the exception that is to be captured and the second keyword is the stacktrace. 
 
@@ -113,7 +113,7 @@ The ```rethrow``` keyword is used to partially handle an exception. It allows an
 Here is an example - 
 
 ```dart
-try{
+try {
     eatFruits();
 } catch (e) {
     print("Here is an exception: $e.");
@@ -129,7 +129,7 @@ Here is am example -
 
 ```dart
 try {
-    eatFruits();
+    eatFruits();    
 } catch (e) {
     print("Here is the exception $e.");
 } finally {
@@ -228,7 +228,7 @@ class Fruit {
 
 :warning: Subclasses don't inherit constructors from their superclass. 
 
-:exclamation: A subclass that declares no constructors has only the default (no argument, no name) constructor.
+:exclamation: A subclass that declares no constructors has only the default(no argument, no name) constructor.
 
 #### Named constructors
 
@@ -280,9 +280,9 @@ class Watermelon extends Fruit {
 
 :warning: The superclass constructor is called after the ```colon(:)``` symbol. 
 
-:warning: If you create a named constructor along with an unamed-no-arg constructor in the super-class, then you don't have to explicitly call the constructors of the super class. The unnamed-no-arg constructor is called by default in the sub-class. 
+:warning: If you create a named constructor along with an unamed-no-arg constructor in the super-class, then you don't have to explicitly call the constructors of the super class. The unnamed-no-arg constructor will be called by default in the sub-class. 
 
-On the other hand if the unnamed constructor has arguments it will be have to called explictly. Named constructors can also be called in its place.  
+On the other hand, if the unnamed constructor has arguments it will be have to called explictly. Named constructors can also be called in its place.  
 
 ##### Initializer List 
 
@@ -410,9 +410,158 @@ Instance variables in ```Dart``` are quite similar to that of ```Java```, howeve
 
 :warning: All non-final variables generate an implicit setter method.
 
-:exclamation:
-
 > If you initialize an instance variable where it is declared (instead of in a constructor or method), the value is set when the instance is created, which is before the constructor and its initializer list execute.
 
 ### Methods 
 
+> Methods are functions that provide behavior for an object.
+
+:warning: Though Dart is Optionally typed ( meaning, specifying the return type of a function such as int or void is optional ), it always recommended to specify type wherever possible. In your code, as a sign of good programming practice, do mention the return type.
+
+:warning: If your function does not return a value then specify void. If you omit the return type then it will by default return null.
+
+:boom: > All functions return a value. If no return value is specified, the statement return null; is implicitly appended to the function body.
+
+:exclamation: Please read this [Stack Overflow](https://stackoverflow.com/questions/25737221/what-is-the-default-return-value-of-a-dart-function) post on return types in ```Dart```. 
+
+:boom: This is [blog post](https://medium.com/flutter-community/the-curious-case-of-void-in-dart-f0535705e529) is really good too. I highly recommend reading this as well. 
+
+:star2: You can return **anything** from a shorthand function with return type void but you **can’t communicate with or use those returned values in any way**.
+
+So why is returning everythin
+
+#### Instance methods
+
+Instance methods are simple methods that have access to ```instance fields``` and ```this```.
+
+Here is an example - 
+
+```dart
+class Fruit {
+    String _fruitName;
+    String _price;
+
+    Fruit(this._fruitName, this._price);
+
+    void displayFruitDetails() {
+        print("The name of this fruit is $_fruitName and it costs $\$_price");
+    }
+}
+```
+In the above example, ```displayFruitDetails()``` is an example of a instance method.
+
+#### Getters and Setters 
+
+> ```Getters``` and ```Setters``` are special methods that provide read and write access to an object’s properties.
+
+:boom: Each instance variable has an implicit getter, plus a setter if appropriate. 
+
+Here is an example - 
+
+```dart
+class Fruit {
+
+    String _fruitName;
+    String _price;
+
+    void set fruitName(String fruitName) => _fruitName = fruitName;
+
+    String get fruitName => _fruitName;
+}
+
+main(List<String> args) {
+    var fruit = Fruit();
+
+    fruit.fruitName = "Watermelon";
+    print(fruit.fruitName);
+}
+```
+:exclamation: Please view [this file](#dragon.dart) which contains a sample program on getters and setters.
+
+:warning: The invokation of getters and setters are a bit different in ```Dart``` when compared to ```Java```. 
+
+#### Abstract methods
+
+> Instance, getter, and setter methods can be abstract, defining an interface but leaving its implementation up to other classes.
+
+:boom: Abstract methods can only exist in abstract classes.
+
+:exclamation: A ```;``` is used to create abstract methods. The body of the abstract method is replaced with a ```;```.
+
+Here is an example - 
+
+```dart
+abstract class Fruit {
+
+    void sayFruitName();
+}
+```
+
+### Abstact Classes
+
+> Abstract classes are useful for defining interfaces, often with some implementation. An abstract class can be made to appear instantiable, by defining a factory constructor.
+
+:warning: The abstract keyword is used to create an abstract class.
+
+Please view [this file](lemon.dart), which contains a sample code on abstract classes.
+
+### Implicit Interfaces 
+
+> Every class implicitly defines an interface containing all the instance members of the class and of any interfaces it implements.
+
+> If you want to create a class A that supports class B’s API without inheriting B’s implementation, class A should implement the B interface.
+
+:warning: The ```implements``` keyword is used to implement interfaces. Multiple interfaces can also be implemented in ```Dart```.
+
+You can find the sample program [here](#custad). 
+
+### Extending a class
+
+A class in ```Dart``` can be extending using the ```extends``` keyword. The members of the super class can be accessed using the ```super``` keyword.
+
+Here is an [example](#cromson)
+
+:warning: It is also possible to override operators in ```Dart```. For more information, please have a look at [this](https://www.dartlang.org/guides/language/language-tour#overridable-operators).
+
+### Enumerated Types 
+
+> Enumerated types, often called enumerations or enums, are a special kind of class used to represent a fixed number of constant values.
+
+:warning: An enum can be created using the ```enum``` keyword. 
+
+Here is an example - 
+
+```dart
+enum Fruit {
+    watermelon,
+    mango,
+    apple
+}
+``` 
+
+The index of a enum element can be accessed by specifying its name. Also, every element has its index and the index can be obtained by using the ```index``` getter.
+
+Also, ```values``` can be used to get the list of all the elements in the enum.
+
+Please keep the following in mind - 
+       
+1. You can’t subclass, mix in, or implement an enum.
+1. You can’t explicitly instantiate an enum.
+
+### Static keyword
+
+```static``` keyword is used to create class-wide variables and constants.
+
+:warning: ```const``` variables have to declared ```static````.
+
+:star2: ```static``` variables aren't initialized untill they are used.
+
+> Static methods (class methods) do not operate on an instance, and thus do not have access to this
+
+### Mixins 
+
+Please view [this blog](https://medium.com/flutter-community/dart-what-are-mixins-3a72344011f3) which explains mixins in great detail.
+
+Also, [this Stack Overflow post](https://stackoverflow.com/questions/45901297/when-to-use-mixins-and-when-to-use-interfaces-in-dart) is also pretty informative.
+
+Mixins are created by using the ```mixin``` keyword. 
